@@ -1,0 +1,29 @@
+1. Các yêu cầu chức năng: 
+
+-	Đăng nhập và đăng ký: 
++ Đăng ký: Người dùng có thể nhập thông tin cần thiết để tạo tài khoản như tên, email, mật khẩu để tạo tài khoản mới.
++ Đăng nhập: Người dùng có thể đăng nhập bằng cách nhập email và mật khẩu để có thể đăng nhập, hoặc người dùng có thể đăng nhập thông qua tài khoản Google.
+
+-	Tìm kiếm:
++ Tìm kiếm: Người dùng có thể tìm kiếm theo tiêu đề sách, tác giả hoặc thể loại sách.
+
+-	Xem mẫu sách: 
++ Người dùng có thể xem qua nội dung giới thiệu về sách, tác giả, thể loại và đánh giá về sách trước khi quyết định đọc sách.
+
+-	Tải và đọc sách: 
++ Tải sách: Người dùng có thể tải sách về thiết bị của họ để đọc offline.
++ Đọc sách: Cung cấp trải nghiệm đọc sách dễ dàng và thoải mái trên thiết bị di động, bao gồm cả việc quay trang, phóng to/thu nhỏ và điều chỉnh     độ sáng.
+
+-	Quản lý thư viện:
++ Xóa sách: Cho phép người dùng xóa các sách không cần thiết khỏi thư viện của họ.
++ Sắp xếp sách: Cho phép người dùng sắp xếp sách theo tiêu đề, tác giả hoặc thể loại.
++ Đánh dấu sách: Người dùng có thể đánh dấu sách yêu thích hoặc các sách đang đọc.
++ Đánh dấu trang: Người dùng có thể đánh dấu các trang quan trọng trong sách để dễ dàng truy cập sau này.
+
+-	Chia sẻ và đánh giá:
++ Chia sẻ sách: Người dùng có thể chia sẻ sách với bạn bè qua email, tin nhắn hoặc mạng xã hội.
++ Đánh giá sách: Cho phép người dùng đánh giá và viết nhận xét về các sách mà họ đã đọc.
+
+-	Báo cáo: Cho phép người dùng xem báo cáo về tiến độ đọc sách hoặc sở thích đọc sách của họ.
+-	Quản lý tài khoản: Cung cấp các tùy chọn quản lý tài khoản như thay đổi mật khẩu hoặc xóa tài khoản.
+
