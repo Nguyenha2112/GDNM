@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "300054922482",
+    "project_id": "meapsbooks",
+    "storage_bucket": "meapsbooks.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:300054922482:android:beb1502113c4fdf997fc6b",
+        "android_client_info": {
+          "package_name": "com.example.meapsbook"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCk4y4xbWeF5VlBMsOgC74Poiaj7R13-Dk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
