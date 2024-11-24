@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html class="js" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://connect.facebook.net/vi_VN/sdk.js?hash=11e961eb3a28470155f348be8852cbdd" async="" crossorigin="anonymous"></script>
+    <script src="https://cdn.inevn.com/js/jquery.main.isj"></script>
+    <script src="https://cdn.inevn.com/js/include.core.isj"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zeyada&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/font/fontawesome-free-6.4.2-web/css/all.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Things to do</title>
+</head>
+
+<body>
+    <div class="page-home">
+
+
+        <nav id="myNav">
+            <div class="header-image">
+                <img src="https://vietnam.travel/themes/custom/vietnamtourism/images/logo.jpg" alt="Header Image">
+            </div>
+            <ul>
+                <li><a href="./index.html"> Live fully in Vietnam</a></li>
+                <li><a href="./placestogo.html"> Places to go</a></li>
+                <li><a href="./thingto.html"> Things to do</a></li>
+                <li><a href="./plan.html"> Plan your trip</a></li>
+                <li><a href="./travel.html"> Travel offers</a></li>
+            </ul>
+        </nav>
+        <!-- <script>
+             window.addEventListener("scroll", function() {
+                var nav = document.getElementById("myNav");
+                if (window.scrollY > 0) {
+                    nav.classList.add("nav-scrolled");
+                } else {
+                    nav.classList.remove("nav-scrolled");
+                }
+            });
+        </script> -->
+        <script>
+            var nav = document.getElementById("myNav");
+            var prevScrollPos = window.pageYOffset;
+            var scrollThreshold = 500;
+
+            window.addEventListener("scroll", function() {
+                var currentScrollPos = window.pageYOffset;
+
+                if (prevScrollPos > currentScrollPos) {
+                    nav.classList.remove("nav-hidden");
+                } else {
+                    if (currentScrollPos > scrollThreshold) {
+                        nav.classList.add("nav-hidden");
+                    }
+                }
+
+                prevScrollPos = currentScrollPos;
+            });
+        </script>
+
+
+        <img src="https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcRdPTF5uGt18Egt_x0xfnTOgEZEv2RBWHPnAcx8TQk1s6UTs6vaGy3O5qjlzRwED-ir" class="bg" alt="">
+        <h1 class="title-p">Things to do</h1>
+        <p class="desc"></p>
+        <br>
+        <section id="get">
+            <div class="container">
+                <h2 class="section-heading">Get Insprired</h2>
+                <p class="section-desc">There are so many insightful tours, amazing dishes and fun activities in Vietnam, you’ll never run out of interesting things to do. Here are some handpicked ideas to get you started.</p>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <div class="get-in">
+                            <a href="">
+                                <img src="./img/food.png">
+                                <div class="cap-getin">
+                                    <p>
+                                        <strong>Food</strong>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="get-in">
+                            <a href="">
+                                <img src="./img/nature.png">
+                                <div class="cap-getin">
+                                    <b>
+                                        Nature
+                                    </b>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="get-in">
+                            <a href="">
+                                <img src="./img/CULTURE.png">
+                                <div class="cap-getin">
+                                    <p>
+                                        <strong>Culture</strong>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="get-in">
+                            <a href="">
+                                <img src="./img/CITIES.jpg">
+                                <div class="cap-getin">
+                                    <p>
+                                        <strong>Cities</strong>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="get-in">
+                            <a href="">
+                                <img src="./img/BEACHES.png">
+                                <div class="cap-getin">
+                                    <p>
+                                        <strong>Beaches</strong>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <div class="get-in">
+                            <a href="">
+                                <img src="./img/Adventure.jpg">
+                                <div class="cap-getin">
+                                    <p>
+                                        <strong>Adventure</strong>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="get-in">
+                            <a href="">
+                                <img src="./img/well.jpeg">
+                                <div class="cap-getin">
+                                    <p>
+                                        <strong>Wellness</strong>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="get-in">
+                            <a href="">
+                                <img src="./img/FAMILY.png">
+                                <div class="cap-getin">
+                                    <p>
+                                        <strong>Family</strong>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="get-in">
+                            <a href="">
+                                <img src="./img/Luxury.jpg">
+                                <div class="cap-getin">
+                                    <p>
+                                        <strong>Luxury</strong>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="get-in">
+                            <a href="">
+                                <img src="./img/Golfing.jpg">
+                                <div class="cap-getin">
+                                    <p>
+                                        <strong>Golf</strong>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+        <section id="food">
+            <!-- <div class="bg-food">
+                <img src="./img/food.jpg"> </div><br> -->
+            <div class="container">
+                <h2 class="section-heading">FABULOUS FOOD</h2>
+                <p class="section-desc">If there’s one characteristic that unites Vietnamese food, it’s freshness. Pass by any Vietnamese market, you'll be amazed by the abundance of the sea and soil: feathery herbs, plump vegetables and flapping-fresh proteins. Freshness is
+                    where the fun begins. Vietnamese cooks enhance beautiful ingredients with aromatic herbs and contrasting textures for maximum delight. Simply put, it's one of the world’s healthiest and most delicious cuisines.
+                </p>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="list">
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="./img/f1.jpg" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold">Ha Noi Food Guide: The best street food dishes to sample</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="./img/f2.jpg" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold"> Must-try noodles in Vietnam</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="./img/f3.jpg" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold"> Take a taste roller coaster with The MICHELIN Guide Hanoi & Ho Chi Minh City 2023 Full Selection </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="bg-food">
+                <img src="./img/bg-f2.jpg"> </div><br>
+            <div class="container">
+                <h2 class="section-heading">STRIKING SCENERY</h2>
+                <p class="section-desc">Vietnam is chock-full of forested peaks, thundering waterfalls, and breezy coastline, so it’s no wonder the country is luring more and more outdoor enthusiasts. With so many options at your fingertips, you may need a second (or third)
+                    trip to take it all in. And while there are plenty of pulse-pounding activities, Vietnam also presents more leisurely ways to enjoy its vast natural attractions.
+                </p>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="list">
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="./img/f2-1.jpg" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold">Phong Nha - Ke Bang National Park: Beyond the home of the World’s largest cave</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="./img/f2-2.jpg" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold"> Pu Luong, Thanh Hoa: The hidden paradise </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="./img/f2-3.jpg" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold"> Thac Ba Lake - The emerald of Yen Bai </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="bg-food">
+                <img src="./img/bg-f3.jpg"> </div><br>
+            <div class="container">
+                <h2 class="section-heading">TIMELESS CULTURE</h2>
+                <p class="section-desc">In a country like Vietnam, the word ‘culture’ has a thousand meanings. It might mean the red and gold gilded doors of the Hue Citadel, or the tin-filter drip coffee served on every street corner. It might mean the sensitive watercolours
+                    hanging in a contemporary gallery, or the throaty cry of Ca Trù sung poetry. It could even encompass the embroidered costumes of the Flower Hmong, or the subtle lines of the áo dài. Past and present, hand-in-hand, are what makes Vietnamese
+                    culture so compelling.
+                </p>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="list">
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="./img/f3-1.jpg" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold">Vietnam - A rising star for event and wedding tourism</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="./img/f3-2.jpg" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold">Big News! Vietnam approves extending e-visas to 90 days </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="./img/f3-3.jpg" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold"> Moc Chau: Your One-Stop Nature Escape </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="bg-food">
+                <img src="./img/bg-f4.jpg"> </div><br>
+            <div class="container">
+                <h2 class="section-heading">CHANGING CITIES</h2>
+                <p class="section-desc">Spend a few days in its urban centres, and you'll see why so many travellers are taken with Vietnam's captivating energy. In the streets and you'll encounter chaotic markets and colonial-era cafes, sparkling malls, hip rooftop lounges,
+                    and tidy boutiques. At least once in your stay, do as the locals do and enjoy an evening of barbecue and beer on the sidewalk, or chat over a cup of tea in the shade of a city park.
+                </p>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="list">
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="./img/f4-1.jpg" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold">Enjoy bus rides back and forth between T1 and T2 Noi Bai International Airport free of charge!</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="./img/f4-2.jpg" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold">4 Reasons Why Da Nang is Vietnam’s Most Livable City </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="./img/f4-3.jpg" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold"> Ho Chi Minh City – A Hub for MICE Tourism </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="bg-food">
+                <img src="./img/bg-f5.jpg"> </div><br>
+            <div class="container">
+                <h2 class="section-heading">BLISSFUL BEACHES</h2>
+                <p class="section-desc">Vietnam is a country with a long, curving coastline. Scattered offshore are dozens of beautiful islets, teeming with sea life and blessed with pristine shores. Vietnam’s coastal cities are packed with activities and on-the-water adventures,
+                    while its fishing villages still hold their simple, seaside charms. Wherever you choose, chilled coconuts, basket boats, and seafood dinners are guaranteed.
+                </p>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="list">
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="./img/f5-1.jpg" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold">Phu Quoc Island: A Laid back, Leisure Getaway</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="./img/f5-2.jpg" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold">Nature, Culture, and Adventure on Vietnam’s Top 5 Beach Islands </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="./img/f5-3.jpg" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold"> Sunset in Phu Quoc </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <br>
+        <section id="fi">
+            <div class="container">
+                <h2 class="section-heading title-in" style="margin-bottom: 30px;">festivals and special events</h2>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="list">
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="./img/fi1.jpg" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold">Vietnam's magical Mid-autumn Festival</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="./img/fi2.jpg" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold"> Top 10 festivals & holidays in Vietnam </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="https://vietnam.travel/sites/default/files/styles/reference_thumbnail/public/2021-02/tet%20festival%20vietnam.jpg?itok=xtgp-Ffq" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold"> A traveller's guide to Tet holiday </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+</body>
+<!-- footer -->
+<br><br>
+<footer>
+    <div class="footer-main mt-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-text">
+                        <div class="footer-text1">
+                            <a href="">
+                                <h6>SIGN UP FOR OUR NEWSLETTER</h6>
+                            </a>
+                            <p style="font-size: 16px; color: #252525;">Receive new travel stories from Vietnam once a month in your inbox.</p>
+                        </div>
+                        <div class="contact-input">
+                            <input type="text" placeholder="Your Name">
+                            <input style="background-color: #b02c18; border: none;" type="submit" value="SIGN UP " placeholder="SIGN UP">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-text-bottom">
+                        <div class="footer-text1">
+                            <a href="">
+                                <h6>USEFUL LINKS</h6>
+                            </a>
+                        </div>
+                        <div class="footer-text2 mt-4">
+                            <a class="text" href="">
+                                <h6>Visas for Vietnam</h6>
+                            </a>
+                            <a class="text" href="">
+                                <h6>Beginner Guide</h6>
+                            </a>
+                            <a class="text" href="">
+                                <h6>FAQs</h6>
+                            </a>
+                            <a class="text" href="">
+                                <h6>Sitemap</h6>
+                            </a>
+                            <a class="text" href="">
+                                <h6>News & Media</h6>
+                            </a>
+                            <a class="text" href="">
+                                <h6>Industry Resources</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-text">
+                        <div class="footer-text1">
+                            <a href="">
+                                <h6>FOLLOW US ON</h6>
+                            </a>
+                        </div>
+                        <div class="footer-text3">
+                            <a class="social"><img src="./img/fb.jpg"></a>
+                            <a class="social"><img src="./img/ytb.jpg"></a>
+                            <a class="social"><img src="./img/ins.jpg"></a>
+                            <a class="social"><img src="./img/pinterest.jpg"></a>
+                            <a class="social"><img src="./img/tiktok.jpg"></a>
+                            <a class="social-img"><img src="./img/logo.jpg" alt=""></a>
+                        </div>
+                        <p style="font-size: 16px; color: #252525;">Welcome to the official website of Viet Nam National Authority of Tourism. Visit our social media pages for more travel inspiration.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="clone">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-3">
+                    <div class="footer-bottom">
+                        <p>@2016 Official Website Vietnam Tourism</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="footer-bottom">
+                        <p>Email: contact@vietnamtourism.gov.vn</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="footer-bottom">
+                        <p>Privacy Policy</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+<!-- footer -->
+
+</html>

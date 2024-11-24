@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html class="js" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://connect.facebook.net/vi_VN/sdk.js?hash=11e961eb3a28470155f348be8852cbdd" async="" crossorigin="anonymous"></script>
+    <script src="https://cdn.inevn.com/js/jquery.main.isj"></script>
+    <script src="https://cdn.inevn.com/js/include.core.isj"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zeyada&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/font/fontawesome-free-6.4.2-web/css/all.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Viet Nam travel</title>
+</head>
+<style>
+    .modal-img-container {
+        overflow: hidden;
+    }
+    
+    .modal-img {
+        transition: transform 0.3s;
+    }
+    
+    .modal-img:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+    
+    .modal-content {
+        border: 0;
+    }
+</style>
+
+
+<body>
+    <div class="page-home">
+
+        <nav id="myNav">
+            <div class="header-image">
+                <img src="https://vietnam.travel/themes/custom/vietnamtourism/images/logo.jpg" alt="Header Image">
+            </div>
+            <ul>
+                <li><a href="./index.html"> Live fully in Vietnam</a></li>
+                <li><a href="./placestogo.html"> Places to go</a></li>
+                <li><a href="./thingto.html"> Things to do</a></li>
+                <li><a href="./plan.html"> Plan your trip</a></li>
+                <li><a href="./travel.html"> Travel offers</a></li>
+            </ul>
+        </nav>
+        <!-- <script>
+             window.addEventListener("scroll", function() {
+                var nav = document.getElementById("myNav");
+                if (window.scrollY > 0) {
+                    nav.classList.add("nav-scrolled");
+                } else {
+                    nav.classList.remove("nav-scrolled");
+                }
+            });
+        </script> -->
+        <script>
+            var nav = document.getElementById("myNav");
+            var prevScrollPos = window.pageYOffset;
+            var scrollThreshold = 500;
+
+            window.addEventListener("scroll", function() {
+                var currentScrollPos = window.pageYOffset;
+
+                if (prevScrollPos > currentScrollPos) {
+                    nav.classList.remove("nav-hidden");
+                } else {
+                    if (currentScrollPos > scrollThreshold) {
+                        nav.classList.add("nav-hidden");
+                    }
+                }
+
+                prevScrollPos = currentScrollPos;
+            });
+        </script>
+
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Nha_Trang_look_from_Nha_Trang_sea.jpeg/4500px-Nha_Trang_look_from_Nha_Trang_sea.jpeg" style="filter:brightness(80%)" class="bg" alt="">
+        <h1 class="title-p">Travel offers</h1><br>
+        <!-- SPECIAL DEALS -->
+        <!--  End SPECIAL DEALS -->
+        <br>
+        <section id="inspired">
+            <div class="container">
+                <h2 class="section-heading">Tips for travellers</h2>
+                <p class="section-desc">Prepare for your sustainable holiday in Vietnam with these easy visual guides. </p>
+                <!-- <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card-img">
+                            <img src="./img/infor1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card-img">
+                            <img src="./img/infor2.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card-img">
+                            <img src="./img/infor3.jpg" alt="">
+                        </div>
+                    </div>
+                </div> -->
+                <div class="container">
+                    <div class="row">
+                        <!-- First Modal -->
+                        <div class="col-md-4">
+                            <div class="modal-img-container">
+                                <img src="https://vietnam.travel/sites/default/files/styles/reference_thumbnail/public/2020-05/how%20to%20travel%20sustainably_0.jpg?itok=jopHyxKS" data-toggle="modal" data-target="#myModal1" alt="Open Modal 1" class="modal-img">
+                            </div>
+                        </div>
+                        <div class="modal fade" id="myModal1" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="wrap-content">
+                                            <div class="wrap-thumb wrap-img-caption">
+                                                <img src="https://vietnam.travel/sites/default/files/2020-07/What%20is%20sustainble%20travel_0.jpg" class="img-responsive" alt="Image 1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Second Modal -->
+                        <div class="col-md-4">
+                            <div class="modal-img-container">
+                                <img src="https://vietnam.travel/sites/default/files/styles/reference_thumbnail/public/2020-05/responsible%20accomodation%20vietnam%20travel.jpg?itok=8ZZUqePn" data-toggle="modal" data-target="#myModal2" alt="Open Modal 2" class="modal-img">
+                            </div>
+                        </div>
+                        <div class="modal fade" id="myModal2" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="wrap-content">
+                                            <div class="wrap-thumb wrap-img-caption">
+                                                <img src="https://vietnam.travel/sites/default/files/2020-07/sustainable%20stays%20vietnam_0.jpg" class="img-responsive" alt="Image 2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Third Modal -->
+                        <div class="col-md-4">
+                            <div class="modal-img-container">
+                                <img src="https://vietnam.travel/sites/default/files/styles/reference_thumbnail/public/2020-05/remote%20destinations%20Vietnam%20sustainable%20travel.jpg?itok=cez74Uo7" data-toggle="modal" data-target="#myModal2" alt="Open Modal 2" class="modal-img">
+                            </div>
+                        </div>
+                        <div class="modal fade" id="myModal3" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="wrap-content">
+                                            <div class="wrap-thumb wrap-img-caption">
+                                                <img src="https://vietnam.travel/sites/default/files/2020-07/remote%20destinations%20vietnam_0.jpg" class="img-responsive" alt="Image 3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- slide show -->
+        <div class="slide mt-3">
+            <section class="container-slide">
+                <div class="slider-wrapper">
+                    <div class="slider">
+                        <div class="slide">
+                            <img src="https://sc-signaturephuquoc.com/wp-content/uploads/2021/11/SCPQ_9-min.jpg" alt="slide1">
+                            <div class="overlay-text">7 reasons to try Sailing Club Phu Quoc</div>
+                        </div>
+                        <div class="slide">
+                            <img src="https://vietnam.travel/sites/default/files/styles/top_banner/public/2020-07/Mekong%20river%20cruise-3_0.jpg?itok=U8unE7SC" alt="slide2">
+                            <div class="overlay-text">Why you'll love Victoria Mekong Cruises</div>
+                        </div>
+                        <div class="slide">
+                            <img src="https://i1-dulich.vnecdn.net/2022/04/08/dulichPhuQuoc-1649392573-9234-1649405369.jpg?w=0&h=0&q=100&dpr=2&fit=crop&s=SU6n3IvJxW1Sla0xqg31Kg" alt="slide3">
+                            <div class="overlay-text">A paradise for two in Phu Quoc</div>
+                        </div>
+                        <div class="slide">
+                            <img src="https://vietnam.travel/sites/default/files/styles/top_banner/public/2021-05/koto%20villa%20hanoi_0.jpg?itok=cQvBDYuA" alt="slide4">
+                            <div class="overlay-text">Dining with a difference at KOTO</div>
+                        </div>
+                        <div class="slide">
+                            <img src="https://vietnam.travel/sites/default/files/styles/top_banner/public/2020-08/Solo%20travel%20in%20Vietnam-2%20%281%29_0.jpg?itok=OMCb2Avh" alt="slide5">
+                            <div class="overlay-text">Vietnam for solo travellers</div>
+                        </div>
+                        <!-- Thêm overlay text và thay đổi nội dung cho các ảnh khác tương tự -->
+                    </div>
+                    <div class="slider-nav">
+                        <a href="#" data-slide="0"></a>
+                        <a href="#" data-slide="1"></a>
+                        <a href="#" data-slide="2"></a>
+                        <a href="#" data-slide="3"></a>
+                        <a href="#" data-slide="4"></a>
+
+                    </div>
+
+                    <div class="slider-controls">
+                        <button id="prevSlide">◄</button>
+                        <button id="nextSlide">►</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <script>
+            const slides = document.querySelectorAll('.slide');
+            const navButtons = document.querySelectorAll('.slider-nav a');
+            const prevSlideButton = document.getElementById('prevSlide');
+            const nextSlideButton = document.getElementById('nextSlide');
+            let currentSlideIndex = 0;
+
+            navButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+            });
+
+            prevSlideButton.addEventListener('click', () => {
+                goToSlide(currentSlideIndex - 1);
+            });
+
+            nextSlideButton.addEventListener('click', () => {
+                goToSlide(currentSlideIndex + 1);
+            });
+
+            function goToSlide(index) {
+                if (index < 0) {
+                    index = slides.length - 1;
+                } else if (index >= slides.length) {
+                    index = 0;
+                }
+
+                slides[currentSlideIndex].scrollIntoView({
+                    behavior: 'smooth'
+                });
+                currentSlideIndex = index;
+            }
+        </script>
+        <br><br>
+        <!-- end slide show -->
+
+        <br><br>
+
+
+        <!-- End Inforgraphics -->
+        <!-- OUR PARTNERS -->
+        <br>
+        <section id="explore">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 class="section-heading">EXPLORE FROM HOME</h2>
+                        <p class="section-desc">Explore Vietnam more from home and start planning your holidays.</p>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="wrap-author">
+                            <div class="wrap-list">
+                                <ul class="list-explore">
+                                    <li class="item-explore">
+                                        <a href="https://www.traveloka.com/vi-vn/" class="block-item">
+                                            <div class="wrap-thumb-explore">
+                                                <img src="./img/our1.png" class="thumb-explore">
+                                            </div>
+                                            <span class="author" style="font-weight: 800;">Traveloka</span>
+                                            <span class="cap" style="font-weight: 50; text-align:center;">
+                                                <i class="fa-solid fa-map"></i>
+                                                Floor 2, An Phu Plaza Building, 117-119 Ly Chinh Thang, Vo Thi Sau Ward, District 3, Ho Chi Minh City </span>
+                                            <span class="cap">
+                                                    <i class="fa-solid fa-phone"></i>
+                                                +84 62859300</span>
+                                            <span class="cap">
+                                                    <i class="fa-solid fa-house"></i>
+                                                    www.traveloka.com
+                                                </span>
+                                        </a>
+                                    </li>
+                                    <li class="item-explore">
+                                        <a href="https://www.visa.com.vn/" class="block-item">
+                                            <div class="wrap-thumb-explore">
+                                                <img src="./img/visa.jpg" class="thumb-explore">
+                                            </div>
+                                            <span class="author" style="font-weight: 800;">Visa</span>
+                                            <span class="cap" style="font-weight: 50; text-align:center;">
+                                                <i class="fa-solid fa-map"></i>
+                                                5th floor, Deutsches Haus 33 Le Duan, District 1, Ho Chi Minh City</span>
+                                            <span class="cap">
+                                                    <i class="fa-solid fa-phone"></i>
+                                                    888 710 7781</span>
+                                            <span class="cap">
+                                                    <i class="fa-solid fa-house"></i>
+                                                    www.visa.com.vn
+                                                </span>
+                                        </a>
+                                    </li>
+                                    <li class="item-explore">
+                                        <a href="https://vinpearl.com/vi" class="block-item">
+                                            <div class="wrap-thumb-explore">
+                                                <img src="./img/our3.jpg" class="thumb-explore">
+                                            </div>
+                                            <span class="author" style="font-weight: 800;">Vingroup </span>
+                                            <span class="cap" style="font-weight: 50; text-align:center;">
+                                                <i class="fa-solid fa-map"></i>
+                                                20A Vincom Center Dong Khoi, 72 Le Thanh Ton, Ho Chi Minh City </span>
+                                            <span class="cap">
+                                                    <i class="fa-solid fa-phone"></i>
+                                                    +84 24 3974 9999</span>
+                                            <span class="cap">
+                                                    <i class="fa-solid fa-house"></i>
+                                                    www.vinpearl.com 
+                                                </span>
+                                        </a>
+                                    </li>
+                                    <li class="item-explore">
+                                        <a href="https://asiadmc.com/" class="block-item">
+                                            <div class="wrap-thumb-explore">
+                                                <img src="./img/our4.png" class="thumb-explore">
+                                            </div>
+                                            <span class="author" style="font-weight: 800;">Asia DMC</span>
+                                            <span class="cap" style="font-weight: 50; text-align:center;">
+                                                <i class="fa-solid fa-map"></i>
+                                                47 Phan Chau Trinh, Hoan Kiem, Hanoi </span>
+                                            <span class="cap">
+                                                    <i class="fa-solid fa-phone"></i>
+                                                    +84 93 646 1068</span>
+                                            <span class="cap">
+                                                    <i class="fa-solid fa-house"></i>
+                                                    www.asiadmc.com
+                                                </span>
+                                        </a>
+                                    </li>
+                                    <li class="item-explore">
+                                        <a href="https://muongthanh.com/" class="block-item">
+                                            <div class="wrap-thumb-explore">
+                                                <img src="./img/our5.jpg" class="thumb-explore">
+                                            </div>
+                                            <span class="author" style="font-weight: 800;">Muong Thanh Group</span>
+                                            <span class="cap" style="font-weight: 50; text-align:center;">
+                                                <i class="fa-solid fa-map"></i>
+                                                CC2 North Linh Dam, Hoang Mai, Hanoi </span>
+                                            <span class="cap">
+                                                    <i class="fa-solid fa-phone"></i>
+                                                    1900 1833</span>
+                                            <span class="cap">
+                                                    <i class="fa-solid fa-house"></i>
+                                                    www.muongthanh.com
+                                                </span>
+                                        </a>
+                                    </li>
+                                    <li class="item-explore">
+                                        <a href="https://sungroup.com.vn/" class="block-item">
+                                            <div class="wrap-thumb-explore">
+                                                <img src="./img/our6.png" class="thumb-explore">
+                                            </div>
+                                            <span class="author" style="font-weight: 800;">Sun Group</span>
+                                            <span class="cap" style="font-weight: 50; text-align:center;">
+                                                <i class="fa-solid fa-map"></i>
+                                                9th floor, 218 Bach Dang, Hai Chau, Danang </span>
+                                            <span class="cap">
+                                                    <i class="fa-solid fa-phone"></i>
+                                                    +84 236 3 819 181</span>
+                                            <span class="cap">
+                                                    <i class="fa-solid fa-house"></i>
+                                                    www.sungroup.com.vn
+                                                </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+        </section>
+        <br><br>
+        <!-- End OUR PARTNERS -->
+        <!-- You may also like -->
+        <section id="in">
+            <div class="container">
+                <h2 class="section-heading title-in">You may also like </h2>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="list">
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="https://vietnam.travel/sites/default/files/styles/reference_thumbnail/public/2021-05/Top%20luxurious%20hotels%20in%20Vietnam_0.jpg?itok=4585dRkF" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold">Top 10 luxurious hotels in Vietnam</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="https://vietnam.travel/sites/default/files/styles/reference_thumbnail/public/2021-05/best%20swimming%20pools%20in%20Vietnam_0.jpg?itok=udriioFv" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold">7 sensational swimming pools in Vietnam</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="https://vietnam.travel/sites/default/files/styles/reference_thumbnail/public/2021-05/amusement%20parks%20in%20Vietnam.jpg?itok=RC1oIoAx" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold"> 3 amazing amusement parks for families </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end You may also like -->
+        <!-- footer -->
+        <br><br>
+        <footer>
+            <div class="footer-main mt-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="footer-text">
+                                <div class="footer-text1">
+                                    <a href="">
+                                        <h6>SIGN UP FOR OUR NEWSLETTER</h6>
+                                    </a>
+                                    <p style="font-size: 16px; color: #252525;">Receive new travel stories from Vietnam once a month in your inbox.</p>
+                                </div>
+                                <div class="contact-input">
+                                    <input type="text" placeholder="Your Name">
+                                    <input style="background-color: #b02c18; border: none;" type="submit" value="SIGN UP " placeholder="SIGN UP">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="footer-text-bottom">
+                                <div class="footer-text1">
+                                    <a href="">
+                                        <h6>USEFUL LINKS</h6>
+                                    </a>
+                                </div>
+                                <div class="footer-text2 mt-4">
+                                    <a class="text" href="">
+                                        <h6>Visas for Vietnam</h6>
+                                    </a>
+                                    <a class="text" href="">
+                                        <h6>Beginner Guide</h6>
+                                    </a>
+                                    <a class="text" href="">
+                                        <h6>FAQs</h6>
+                                    </a>
+                                    <a class="text" href="">
+                                        <h6>Sitemap</h6>
+                                    </a>
+                                    <a class="text" href="">
+                                        <h6>News & Media</h6>
+                                    </a>
+                                    <a class="text" href="">
+                                        <h6>Industry Resources</h6>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="footer-text">
+                                <div class="footer-text1">
+                                    <a href="">
+                                        <h6>FOLLOW US ON</h6>
+                                    </a>
+                                </div>
+                                <div class="footer-text3">
+                                    <a class="social"><img src="./img/fb.jpg"></a>
+                                    <a class="social"><img src="./img/ytb.jpg"></a>
+                                    <a class="social"><img src="./img/ins.jpg"></a>
+                                    <a class="social"><img src="./img/pinterest.jpg"></a>
+                                    <a class="social"><img src="./img/tiktok.jpg"></a>
+                                    <a class="social-img"><img src="./img/logo.jpg" alt=""></a>
+                                </div>
+                                <p style="font-size: 16px; color: #252525;">Welcome to the official website of Viet Nam National Authority of Tourism. Visit our social media pages for more travel inspiration.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <div class="clone">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-3">
+                            <div class="footer-bottom">
+                                <p>@2016 Official Website Vietnam Tourism</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="footer-bottom">
+                                <p>Email: contact@vietnamtourism.gov.vn</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="footer-bottom">
+                                <p>Privacy Policy</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- footer -->
+</body>
+
+</html>

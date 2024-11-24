@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html class="js" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://connect.facebook.net/vi_VN/sdk.js?hash=11e961eb3a28470155f348be8852cbdd" async="" crossorigin="anonymous"></script>
+    <script src="https://cdn.inevn.com/js/jquery.main.isj"></script>
+    <script src="https://cdn.inevn.com/js/include.core.isj"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Montserrat:wght@100&family=Roboto:wght@100&family=Ysabeau:ital,wght@1,100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Water+Brush&display=swap" rel="stylesheet"> -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet"> -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zeyada&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/font/fontawesome-free-6.4.2-web/css/all.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Plan your trip</title>
+</head>
+<style>
+    .modal-img-container {
+        overflow: hidden;
+    }
+    
+    .modal-img {
+        transition: transform 0.3s;
+    }
+    
+    .modal-img:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+    
+    .modal-content {
+        border: 0;
+    }
+    
+    .container-slider {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+    
+    .slider-wrapper {
+        position: relative;
+        max-width: 100%;
+        /* Thay đổi kích thước tối đa cho slider */
+        margin: 0 auto;
+    }
+    
+    .slider {
+        display: flex;
+        overflow-x: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+        border-radius: 0;
+    }
+    
+    .slide {
+        flex: 0 0 100%;
+        scroll-snap-align: start;
+        position: relative;
+    }
+    
+    .slide img {
+        width: 100%;
+        height: 100vh;
+        /* Đặt chiều cao của hình ảnh là 100% chiều cao của viewport */
+        object-fit: cover;
+    }
+    
+    .overlay-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        /* Màu chữ */
+        padding: 10px;
+        text-align: center;
+        font-size: 30px;
+        /* Kích thước font chữ */
+        text-shadow: 2px 2px 4px #000;
+        /* Viền đen cho chữ */
+    }
+    
+    .slider-nav {
+        display: flex;
+        justify-content: center;
+        column-gap: 1rem;
+        position: absolute;
+        bottom: 1.25rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+    
+    .slider-nav a {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background-color: #fff;
+        opacity: 0.75;
+        transition: opacity ease 250ms;
+        margin: 0.2rem;
+    }
+    
+    .slider-nav a:hover {
+        opacity: 1;
+    }
+    
+    .slider-controls {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .slider-controls button {
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: #fff;
+        cursor: pointer;
+    }
+    
+    .slider-controls button:hover {
+        opacity: 0.8;
+    }
+</style>
+
+
+<body>
+    <div class="page-home">
+
+
+
+        <nav id="myNav">
+            <div class="header-image">
+                <img src="https://vietnam.travel/themes/custom/vietnamtourism/images/logo.jpg" alt="Header Image">
+            </div>
+            <ul>
+                <li><a href="./index.html"> Live fully in Vietnam</a></li>
+                <li><a href="./placestogo.html"> Places to go</a></li>
+                <li><a href="./thingto.html"> Things to do</a></li>
+                <li><a href="./plan.html"> Plan your trip</a></li>
+                <li><a href="./travel.html"> Travel offers</a></li>
+            </ul>
+        </nav>
+        <!-- <script>
+             window.addEventListener("scroll", function() {
+                var nav = document.getElementById("myNav");
+                if (window.scrollY > 0) {
+                    nav.classList.add("nav-scrolled");
+                } else {
+                    nav.classList.remove("nav-scrolled");
+                }
+            });
+        </script> -->
+        <script>
+            var nav = document.getElementById("myNav");
+            var prevScrollPos = window.pageYOffset;
+            var scrollThreshold = 500;
+
+            window.addEventListener("scroll", function() {
+                var currentScrollPos = window.pageYOffset;
+
+                if (prevScrollPos > currentScrollPos) {
+                    nav.classList.remove("nav-hidden");
+                } else {
+                    if (currentScrollPos > scrollThreshold) {
+                        nav.classList.add("nav-hidden");
+                    }
+                }
+
+                prevScrollPos = currentScrollPos;
+            });
+        </script>
+        <img src="./img/slide2.jpg" class="bg" alt="">
+
+
+
+
+        <!-- <nav>
+            <div class="header-image">
+                <img src="https://vietnam.travel/themes/custom/vietnamtourism/images/logo.jpg" alt="Header Image">
+            </div>
+            <ul>
+                <li><a href="./index.html"> Live fully in Vietnam</a></li>
+                <li><a href="./placestogo.html"> Places to go</a></li>
+                <li><a href="./thingto.html"> Things to do</a></li>
+                <li><a href="./plan.html"> Plan your trip</a></li>
+                <li><a href="./travel.html"> Travel offers</a></li>
+            </ul>
+        </nav> -->
+        <div class="title">
+            <h1 class="title-p">Plan your trip</h1>
+        </div>
+        <!-- Travel Tips -->
+        <br><br>
+        <section id="travel-tips">
+            <div class="container">
+                <h2 class="section-heading">Travel Tips</h2>
+                <p class="section-desc">Read up before you go</p>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2 text-center">
+                        <div class="thumbnail">
+                            <a href="">
+                                <img src="./img/tt-1.jpg" alt="">
+                                <div class="caption">
+                                    <p>Visas</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <div class="thumbnail">
+                            <a href="">
+                                <img src="./img/tt-2.jpg" alt="">
+                                <div class="caption">
+                                    <p>Transport</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <div class="thumbnail">
+                            <a href="">
+                                <img src="./img/tt-3.jpg" alt="">
+                                <div class="caption">
+                                    <p>Weather</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <div class="thumbnail">
+                            <a href="">
+                                <img src="./img/tt-4.jpg" alt="">
+                                <div class="caption">
+                                    <p>Safety</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <div class="thumbnail">
+                            <a href="">
+                                <img src="./img/tt-5.jpg" alt="">
+                                <div class="caption">
+                                    <p>History</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2 text-center">
+                        <div class="thumbnail">
+                            <a href="">
+                                <img src="./img/airports.jpg" alt="">
+                                <div class="caption">
+                                    <p>Airports</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <div class="thumbnail">
+                            <a href="">
+                                <img src="./img/Itinerary.jpg" alt="">
+                                <div class="caption">
+                                    <p>Itineraries</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <div class="thumbnail">
+                            <a href="">
+                                <img src="./img/festivals.jpg" alt="">
+                                <div class="caption">
+                                    <p>Festival</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <div class="thumbnail">
+                            <a href="">
+                                <img src="./img/nonla.jpg" alt="">
+                                <div class="caption">
+                                    <p>Etiquette</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <div class="thumbnail">
+                            <a href="">
+                                <img src="./img/Partners.jpg" alt="">
+                                <div class="caption">
+                                    <p>Payments</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+        </section>
+        <br>
+        <br>
+        <br>
+        <!-- slide show -->
+        <section class="container-slider">
+            <div class="slider-wrapper">
+                <div class="slider">
+                    <div class="slide">
+                        <img src="https://vietnam.travel/sites/default/files/styles/top_banner/public/2020-08/Best%20responsible%20tours%20Vietam_0.jpg?itok=rWOpf_yy" alt="slide1">
+                        <div class="overlay-text">Explore and embrace: Vietnam’s green tours</div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://vietnam.travel/sites/default/files/styles/top_banner/public/2020-08/sustainable%20hotels%20vietnam_0_0.jpg?itok=xhQG2i6T" alt="slide2">
+                        <div class="overlay-text">The best sustainable stays in Vietnam </div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://vietnam.travel/sites/default/files/styles/top_banner/public/2020-04/What%20is%20sustainable%20travel-5_0.jpg?itok=6IM-bcy-" alt="slide3">
+                        <div class="overlay-text">An introduction to sustainable travel</div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://vietnam.travel/sites/default/files/styles/top_banner/public/2021-05/koto%20villa%20hanoi_0.jpg?itok=cQvBDYuA" alt="slide4">
+                        <div class="overlay-text">Dining with a difference at KOTO</div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://vietnam.travel/sites/default/files/styles/top_banner/public/2020-08/Solo%20travel%20in%20Vietnam-2%20%281%29_0.jpg?itok=OMCb2Avh" alt="slide5">
+                        <div class="overlay-text">Vietnam for solo travellers</div>
+                    </div>
+                    <!-- Thêm overlay text và thay đổi nội dung cho các ảnh khác tương tự -->
+                </div>
+                <div class="slider-nav">
+                    <a href="#" data-slide="0"></a>
+                    <a href="#" data-slide="1"></a>
+                    <a href="#" data-slide="2"></a>
+                    <a href="#" data-slide="3"></a>
+                    <a href="#" data-slide="4"></a>
+
+                </div>
+
+                <div class="slider-controls">
+                    <button id="prevSlide">◄</button>
+                    <button id="nextSlide">►</button>
+                </div>
+            </div>
+        </section>
+
+
+        <script>
+            const slides = document.querySelectorAll('.slide');
+            const navButtons = document.querySelectorAll('.slider-nav a');
+            const prevSlideButton = document.getElementById('prevSlide');
+            const nextSlideButton = document.getElementById('nextSlide');
+            let currentSlideIndex = 0;
+
+            navButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+            });
+
+            prevSlideButton.addEventListener('click', () => {
+                goToSlide(currentSlideIndex - 1);
+            });
+
+            nextSlideButton.addEventListener('click', () => {
+                goToSlide(currentSlideIndex + 1);
+            });
+
+            function goToSlide(index) {
+                if (index < 0) {
+                    index = slides.length - 1;
+                } else if (index >= slides.length) {
+                    index = 0;
+                }
+
+                slides[currentSlideIndex].scrollIntoView({
+                    behavior: 'smooth'
+                });
+                currentSlideIndex = index;
+            }
+        </script>
+
+
+        <!-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./img/slide1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/slide2.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/bg-travel.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div> -->
+        <br><br>
+        <!-- End Travel Tips -->
+        <!-- Precticalities -->
+        <!--End Precticalities -->
+        <!-- Explore from home -->
+        <section id="explore">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 class="section-heading">EXPLORE FROM HOME</h2>
+                        <p class="section-desc">Explore Vietnam more from home and start planning your holidays.</p>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="wrap-author">
+                            <div class="wrap-list">
+                                <ul class="list-explore">
+                                    <li class="item-explore">
+                                        <a class="block-item">
+                                            <div class="wrap-thumb-explore">
+                                                <img src="./img/explore1.jpg" class="thumb-explore">
+                                            </div>
+                                            <span class="author">Fun at Home</span>
+                                            <span class="cap">Recipes, colouring sheets, and more </span>
+                                        </a>
+                                    </li>
+                                    <li class="item-explore">
+                                        <a class="block-item">
+                                            <div class="wrap-thumb-explore">
+                                                <img src="https://vietnam.travel/sites/default/files/styles/large/public/2020-04/Vietnam%20Travel-24_1.jpg?itok=lM8q5xcN" class="thumb-explore">
+                                            </div>
+                                            <span class="author">Books, Art & Music</span>
+                                            <span class="cap">A primer on Vietnamese culture</span>
+                                        </a>
+                                    </li>
+                                    <li class="item-explore">
+                                        <a class="block-item">
+                                            <div class="wrap-thumb-explore">
+                                                <img src="https://vietnam.travel/sites/default/files/styles/large/public/2020-04/Vietnam%20Travel-13_0.jpg?itok=8H6GAWTy" class="thumb-explore">
+                                            </div>
+                                            <span class="author">My VietNam</span>
+                                            <span class="cap">Local stories from north to south</span>
+                                        </a>
+                                    </li>
+                                    <li class="item-explore">
+                                        <a class="block-item">
+                                            <div class="wrap-thumb-explore">
+                                                <img src="https://vietnam.travel/sites/default/files/styles/large/public/2020-02/Vietnam%20Tourism-5.jpg?itok=9dYS3D9u" class="thumb-explore">
+                                            </div>
+                                            <span class="author">Travel advisory</span>
+                                            <span class="cap">Precautions and prevention for COVID-19 </span>
+                                        </a>
+                                    </li>
+                                    <li class="item-explore">
+                                        <a class="block-item">
+                                            <div class="wrap-thumb-explore">
+                                                <img src="https://vietnam.travel/sites/default/files/styles/large/public/2020-02/Vietnam%20Tourism-6.jpg?itok=4HLVC60N" class="thumb-explore">
+                                            </div>
+                                            <span class="author">Safety strategy</span>
+                                            <span class="cap">How Vietnam contains the virus </span>
+                                        </a>
+                                    </li>
+                                    <li class="item-explore">
+                                        <a class="block-item">
+                                            <div class="wrap-thumb-explore">
+                                                <img src="https://vietnam.travel/sites/default/files/styles/large/public/2020-02/Vietnam%20Tourism-7.jpg?itok=G2ILo_9Y" class="thumb-explore">
+                                            </div>
+                                            <span class="author">Inspiring stories</span>
+                                            <span class="cap">Kindness and community spirit</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+        </section>
+        <!--End Explore from home -->
+        <!-- Inforgraphics -->
+        <br><br>
+        <section id="inspired">
+            <div class="container">
+                <h2 class="section-heading">INFOGRAPHICS</h2>
+                <p class="section-desc">ELearn more about Vietnam</p>
+                <!-- <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card-img">
+                            <img src="./img/infor1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card-img">
+                            <img src="./img/infor2.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card-img">
+                            <img src="./img/infor3.jpg" alt="">
+                        </div>
+                    </div>
+                </div> -->
+                <div class="container">
+                    <div class="row">
+                        <!-- First Modal -->
+                        <div class="col-md-4">
+                            <div class="modal-img-container">
+                                <img src="https://vietnam.travel/sites/default/files/styles/reference_thumbnail/public/2021-04/Etiquette%20in%20Vietnam.jpg?itok=x5mkB5F-" data-toggle="modal" data-target="#myModal1" alt="Open Modal 1" class="modal-img">
+                            </div>
+                        </div>
+                        <div class="modal fade" id="myModal1" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="wrap-content">
+                                            <div class="wrap-thumb wrap-img-caption">
+                                                <img src="https://vietnam.travel/sites/default/files/2021-04/Vietnamese%20Etiquette%20guide.jpg" class="img-responsive" alt="Image 1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Second Modal -->
+                        <div class="col-md-4">
+                            <div class="modal-img-container">
+                                <img src="https://vietnam.travel/sites/default/files/styles/reference_thumbnail/public/2021-04/e-visa%20guide%20vietnam_0.jpg?itok=cNTcAGja" data-toggle="modal" data-target="#myModal2" alt="Open Modal 2" class="modal-img">
+                            </div>
+                        </div>
+                        <div class="modal fade" id="myModal2" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="wrap-content">
+                                            <div class="wrap-thumb wrap-img-caption">
+                                                <img src="https://vietnam.travel/sites/default/files/2021-04/Vietnam%20e-visa%20guide_0.jpg" class="img-responsive" alt="Image 2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Third Modal -->
+                        <div class="col-md-4">
+                            <div class="modal-img-container">
+                                <img src="https://vietnam.travel/sites/default/files/styles/reference_thumbnail/public/2021-04/transport%20in%20vietnam%20%282%29_2.jpg?itok=oYRhRY5C" data-toggle="modal" data-target="#myModal2" alt="Open Modal 2" class="modal-img">
+                            </div>
+                        </div>
+                        <div class="modal fade" id="myModal3" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="wrap-content">
+                                            <div class="wrap-thumb wrap-img-caption">
+                                                <img src="https://vietnam.travel/sites/default/files/2021-04/transport%20in%20vietnam%20%281%29.jpg" class="img-responsive" alt="Image 3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br><br>
+        <!-- End Inforgraphics -->
+        <!-- Experiences -->
+        <div id="doccure-courses">
+            <div class="container">
+                <h2 class="section-heading">Experiences</h2>
+                <p class="section-desc">ELearn more about Vietnam</p>
+                <div class="courses-card">
+                    <div class="card--blue">
+                        <a href="#">
+                            <div class="card--bg courses-1">
+                                <p class="bold">VinOasis Phu Quoc</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="card--bg courses-2">
+                                <p class="bold">InterContinental Phu Quoc</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="card--bg courses-3">
+                                <p class="bold">VinWonders Nha Trang</p>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="card--bg courses-4">
+                                <p class="bold">Sailing Club Phu Quoc</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- End Experiences -->
+        <!-- itineraries -->
+        <br><br>
+        <section id="fi">
+            <div class="container">
+                <h2 class="section-heading title-in" style="margin-bottom: 30px;">itineraries</h2>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="list">
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="https://vietnam.travel/sites/default/files/styles/reference_thumbnail/public/2017-06/weekend-in-hanoi.jpg?itok=cYUx-ROo" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold">The perfect weekend in Ha Noi</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="https://vietnam.travel/sites/default/files/styles/reference_thumbnail/public/2019-07/top%20things%20to%20do%20in%20hue.jpg?itok=nwGnh8Z9" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold">3 days in Hue for culture seekers </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="wrap-thumb">
+                                    <a href="">
+                                        <img src="https://vietnam.travel/sites/default/files/styles/reference_thumbnail/public/2018-12/saigon%20itinerary%20vietnam%20travel.jpg?itok=-TdT8ayg" class="thumb">
+                                        <div class="desc">
+                                            <p class="montserrat-bold"> The perfect weekend in HCMC </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End itineraries -->
+
+</body>
+<br><br>
+<footer>
+    <div class="footer-main mt-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-text">
+                        <div class="footer-text1">
+                            <a href="">
+                                <h6>SIGN UP FOR OUR NEWSLETTER</h6>
+                            </a>
+                            <p style="font-size: 16px; color: #252525;">Receive new travel stories from Vietnam once a month in your inbox.</p>
+                        </div>
+                        <div class="contact-input">
+                            <input type="text" placeholder="Your Name">
+                            <input style="background-color: #b02c18; border: none;" type="submit" value="SIGN UP " placeholder="SIGN UP">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-text-bottom">
+                        <div class="footer-text1">
+                            <a href="">
+                                <h6>USEFUL LINKS</h6>
+                            </a>
+                        </div>
+                        <div class="footer-text2 mt-4">
+                            <a class="text" href="">
+                                <h6>Visas for Vietnam</h6>
+                            </a>
+                            <a class="text" href="">
+                                <h6>Beginner Guide</h6>
+                            </a>
+                            <a class="text" href="">
+                                <h6>FAQs</h6>
+                            </a>
+                            <a class="text" href="">
+                                <h6>Sitemap</h6>
+                            </a>
+                            <a class="text" href="">
+                                <h6>News & Media</h6>
+                            </a>
+                            <a class="text" href="">
+                                <h6>Industry Resources</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-text">
+                        <div class="footer-text1">
+                            <a href="">
+                                <h6>FOLLOW US ON</h6>
+                            </a>
+                        </div>
+                        <div class="footer-text3">
+                            <a class="social"><img src="./img/fb.jpg"></a>
+                            <a class="social"><img src="./img/ytb.jpg"></a>
+                            <a class="social"><img src="./img/ins.jpg"></a>
+                            <a class="social"><img src="./img/pinterest.jpg"></a>
+                            <a class="social"><img src="./img/tiktok.jpg"></a>
+                            <a class="social-img"><img src="./img/logo.jpg" alt=""></a>
+                        </div>
+                        <p style="font-size: 16px; color: #252525;">Welcome to the official website of Viet Nam National Authority of Tourism. Visit our social media pages for more travel inspiration.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="clone">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-3">
+                    <div class="footer-bottom">
+                        <p>@2016 Official Website Vietnam Tourism</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="footer-bottom">
+                        <p>Email: contact@vietnamtourism.gov.vn</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="footer-bottom">
+                        <p>Privacy Policy</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</footer>
+
+
+</html>
